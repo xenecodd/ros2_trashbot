@@ -1,0 +1,3 @@
+[console_scripts]
+perception = perception.perception_node:main
+

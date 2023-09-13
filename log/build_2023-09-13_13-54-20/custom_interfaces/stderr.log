@@ -1,5 +1,0 @@
-[31mCMake Error at CMakeLists.txt:10:
-  Parse error.  Expected a newline, got identifier with text
-  "rosidl_generate_interfaces".
-
-[0m

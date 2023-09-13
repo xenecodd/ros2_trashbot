@@ -1,8 +1,0 @@
-[0.011s] Invoking command in '/home/eypan/ros2_ws/build/custom_interfaces': CMAKE_PREFIX_PATH=/home/eypan/ros2_ws/install/perception:/home/eypan/install/tutorial_interfaces:/opt/ros/humble /usr/bin/cmake /home/eypan/ros2_ws/src/custom_interfaces -DCMAKE_INSTALL_PREFIX=/home/eypan/ros2_ws/install/custom_interfaces
-[0.028s] [31mCMake Error at CMakeLists.txt:10:
-[0.028s]   Parse error.  Expected a newline, got identifier with text
-[0.028s]   "rosidl_generate_interfaces".
-[0.028s] 
-[0.028s] [0m
-[0.028s] -- Configuring incomplete, errors occurred!
-[0.031s] Invoked command in '/home/eypan/ros2_ws/build/custom_interfaces' returned '1': CMAKE_PREFIX_PATH=/home/eypan/ros2_ws/install/perception:/home/eypan/install/tutorial_interfaces:/opt/ros/humble /usr/bin/cmake /home/eypan/ros2_ws/src/custom_interfaces -DCMAKE_INSTALL_PREFIX=/home/eypan/ros2_ws/install/custom_interfaces
