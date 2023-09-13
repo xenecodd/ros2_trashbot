@@ -1,0 +1,15 @@
+// generated from rosidl_adapter/resource/srv.idl.em
+// with input from custom_interfaces/srv/ComponentStatus.srv
+// generated code does not contain a copyright notice
+
+
+module custom_interfaces {
+  module srv {
+    struct ComponentStatus_Request {
+      string component;
+    };
+    struct ComponentStatus_Response {
+      string status;
+    };
+  };
+};

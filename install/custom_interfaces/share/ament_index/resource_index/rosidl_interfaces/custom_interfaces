@@ -1,0 +1,4 @@
+srv/ComponentStatus.idl
+srv/ComponentStatus.srv
+srv/ComponentStatus_Request.msg
+srv/ComponentStatus_Response.msg
