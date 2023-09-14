@@ -28,18 +28,30 @@ class BrainNode(Node):
     )
 
     self.componentStatusClient = self.create_client(
-        ComponentStatus, 'component_status')
+        ComponentStatus,
+        'component_status')
     while not self.componentStatusClient.wait_for_service(timeout_sec=1.0):
       self.get_logger().info('service not available, waiting again...')
     self.request = ComponentStatus.Request()
+
+    self.actuation_command_publisher = self.create_publisher(
+         String,
+         'actuation_command',
+         10
+
+    )
 
   def trash_detection_callback(self, msg):
     self.get_logger().info('I heard: "%s"' % msg.data)
     message = msg.data
     if "trash" in message:
       self.get_logger().info("Sending move request to actuator")
+      msg.data = "run"
     else:
       self.get_logger().info("Sending no request to actuator")
+      msg.data = "no need for movement"
+    self.actuation_command_publisher.publish(msg)
+    self.get_logger().info('Publishing: "%s"' % msg)
 
   async def send_component_status_request(self):
     self.request.component = "camera"

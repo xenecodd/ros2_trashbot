@@ -1,0 +1,24 @@
+[1.065s] Invoking command in '/home/eypan/ros2_ws/src/perception': PYTHONPATH=/home/eypan/ros2_ws/build/perception/prefix_override:/home/eypan/ros2_ws/install/perception/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../build/perception build --build-base /home/eypan/ros2_ws/build/perception/build install --record /home/eypan/ros2_ws/build/perception/install.log --single-version-externally-managed
+[1.315s] running egg_info
+[1.315s] writing ../../build/perception/perception.egg-info/PKG-INFO
+[1.316s] writing dependency_links to ../../build/perception/perception.egg-info/dependency_links.txt
+[1.316s] writing entry points to ../../build/perception/perception.egg-info/entry_points.txt
+[1.316s] writing requirements to ../../build/perception/perception.egg-info/requires.txt
+[1.316s] writing top-level names to ../../build/perception/perception.egg-info/top_level.txt
+[1.317s] reading manifest file '../../build/perception/perception.egg-info/SOURCES.txt'
+[1.318s] writing manifest file '../../build/perception/perception.egg-info/SOURCES.txt'
+[1.318s] running build
+[1.318s] running build_py
+[1.318s] copying perception/perception_node.py -> /home/eypan/ros2_ws/build/perception/build/lib/perception
+[1.318s] running install
+[1.319s] running install_lib
+[1.319s] copying /home/eypan/ros2_ws/build/perception/build/lib/perception/perception_node.py -> /home/eypan/ros2_ws/install/perception/lib/python3.10/site-packages/perception
+[1.320s] byte-compiling /home/eypan/ros2_ws/install/perception/lib/python3.10/site-packages/perception/perception_node.py to perception_node.cpython-310.pyc
+[1.320s] running install_data
+[1.321s] running install_egg_info
+[1.322s] removing '/home/eypan/ros2_ws/install/perception/lib/python3.10/site-packages/perception-0.0.0-py3.10.egg-info' (and everything under it)
+[1.322s] Copying ../../build/perception/perception.egg-info to /home/eypan/ros2_ws/install/perception/lib/python3.10/site-packages/perception-0.0.0-py3.10.egg-info
+[1.323s] running install_scripts
+[1.339s] Installing perception script to /home/eypan/ros2_ws/install/perception/lib/perception
+[1.343s] writing list of installed files to '/home/eypan/ros2_ws/build/perception/install.log'
+[1.366s] Invoked command in '/home/eypan/ros2_ws/src/perception' returned '0': PYTHONPATH=/home/eypan/ros2_ws/build/perception/prefix_override:/home/eypan/ros2_ws/install/perception/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../build/perception build --build-base /home/eypan/ros2_ws/build/perception/build install --record /home/eypan/ros2_ws/build/perception/install.log --single-version-externally-managed
