@@ -10,24 +10,46 @@ class PerceptionNode(Node):
     def __init__(self):
         super().__init__('perception_node')
 
+        self.cameraTopic = self.declare_parameter(
+            "cameraTopic",
+            "None"
+        )
+        self.trashDetectionTopic = self.declare_parameter(
+            "trashDetectionTopic",
+            "None"
+        )
+        self.componentStatusService = self.declare_parameter(
+            "componentStatusService",
+            "None"
+        )
+
+        self.get_parameter_values()
         self.cameraSubscriber = self.create_subscription(
             String,
-            'camera',
+            self.cameraTopic,
             self.camera_callback,
             10
         )
 
         self.trashDetectionPublisher = self.create_publisher(
             String,
-            'trash_detection',
+            self.trashDetectionTopic,
             10
         )
 
         self.componentStatusService = self.create_service(
             ComponentStatus,
-            'component_status',
+            self.componentStatusService,
             self.handle_component_status
         )
+
+    def get_parameter_values(self):
+        self.cameraTopic = self.get_parameter(
+            'cameraTopic').get_parameter_value().string_value
+        self.trashDetectionTopic = self.get_parameter(
+            'trashDetectionTopic').get_parameter_value().string_value
+        self.componentStatusService = self.get_parameter(
+            'componentStatusService').get_parameter_value().string_value
 
     def camera_callback(self, message):
         msg = String()

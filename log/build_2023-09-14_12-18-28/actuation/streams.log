@@ -1,0 +1,21 @@
+[0.885s] Invoking command in '/home/eypan/ros2_ws/src/actuation': PYTHONPATH=/home/eypan/ros2_ws/build/actuation/prefix_override:/home/eypan/ros2_ws/install/actuation/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../build/actuation build --build-base /home/eypan/ros2_ws/build/actuation/build install --record /home/eypan/ros2_ws/build/actuation/install.log --single-version-externally-managed
+[1.084s] running egg_info
+[1.085s] writing ../../build/actuation/actuation.egg-info/PKG-INFO
+[1.085s] writing dependency_links to ../../build/actuation/actuation.egg-info/dependency_links.txt
+[1.085s] writing entry points to ../../build/actuation/actuation.egg-info/entry_points.txt
+[1.085s] writing requirements to ../../build/actuation/actuation.egg-info/requires.txt
+[1.085s] writing top-level names to ../../build/actuation/actuation.egg-info/top_level.txt
+[1.087s] reading manifest file '../../build/actuation/actuation.egg-info/SOURCES.txt'
+[1.087s] writing manifest file '../../build/actuation/actuation.egg-info/SOURCES.txt'
+[1.087s] running build
+[1.087s] running build_py
+[1.087s] running install
+[1.088s] running install_lib
+[1.089s] running install_data
+[1.089s] running install_egg_info
+[1.090s] removing '/home/eypan/ros2_ws/install/actuation/lib/python3.10/site-packages/actuation-0.0.0-py3.10.egg-info' (and everything under it)
+[1.090s] Copying ../../build/actuation/actuation.egg-info to /home/eypan/ros2_ws/install/actuation/lib/python3.10/site-packages/actuation-0.0.0-py3.10.egg-info
+[1.091s] running install_scripts
+[1.106s] Installing actuation script to /home/eypan/ros2_ws/install/actuation/lib/actuation
+[1.106s] writing list of installed files to '/home/eypan/ros2_ws/build/actuation/install.log'
+[1.146s] Invoked command in '/home/eypan/ros2_ws/src/actuation' returned '0': PYTHONPATH=/home/eypan/ros2_ws/build/actuation/prefix_override:/home/eypan/ros2_ws/install/actuation/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../build/actuation build --build-base /home/eypan/ros2_ws/build/actuation/build install --record /home/eypan/ros2_ws/build/actuation/install.log --single-version-externally-managed

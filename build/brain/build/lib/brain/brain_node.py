@@ -9,67 +9,90 @@ from rclpy.executors import MultiThreadedExecutor
 
 class BrainNode(Node):
 
-  def __init__(self):
-    super().__init__('brain_node')
-    self.callback_group = ReentrantCallbackGroup()
+    def __init__(self):
+        super().__init__('brain_node')
 
-    self.trashDetectionSubscriber = self.create_subscription(
-        String,
-        'trash_detection',
-        self.trash_detection_callback,
-        10,
-        callback_group=self.callback_group
-    )
+        self.trashDetectionTopic = self.declare_parameter(
+            "trashDetectionTopic",
+            "None"
+        )
+        self.componentStatusService = self.declare_parameter(
+            "componentStatusService",
+            "None"
+        )
+        self.actuation_command_topic = self.declare_parameter(
+            "actuation_command_topic",
+            "None"
+        )
+        self.get_parameter_values()
+        self.callback_group = ReentrantCallbackGroup()
 
-    self.componentStatusServiceTimer = self.create_timer(
-        5,
-        self.send_component_status_request,
-        callback_group=self.callback_group
-    )
+        self.trashDetectionSubscriber = self.create_subscription(
+            String,
+            self.trashDetectionTopic,
+            self.trash_detection_callback,
+            10,
+            callback_group=self.callback_group
+        )
 
-    self.componentStatusClient = self.create_client(
-        ComponentStatus,
-        'component_status')
-    while not self.componentStatusClient.wait_for_service(timeout_sec=1.0):
-      self.get_logger().info('service not available, waiting again...')
-    self.request = ComponentStatus.Request()
+        self.componentStatusServiceTimer = self.create_timer(
+            5,
+            self.send_component_status_request,
+            callback_group=self.callback_group
+        )
 
-    self.actuation_command_publisher = self.create_publisher(
-         String,
-         'actuation_command',
-         10
+        self.componentStatusClient = self.create_client(
+            ComponentStatus,
+            self.componentStatusService)
+        while not self.componentStatusClient.wait_for_service(timeout_sec=1.0):
+            self.get_logger().info('service not available, waiting again...')
+        self.request = ComponentStatus.Request()
 
-    )
+        self.actuation_command_publisher = self.create_publisher(
+            String,
+            self.actuation_command_topic,
+            10
 
-  def trash_detection_callback(self, msg):
-    self.get_logger().info('I heard: "%s"' % msg.data)
-    message = msg.data
-    if "trash" in message:
-      self.get_logger().info("Sending move request to actuator")
-      msg.data = "run"
-    else:
-      self.get_logger().info("Sending no request to actuator")
-      msg.data = "no need for movement"
-    self.actuation_command_publisher.publish(msg)
-    self.get_logger().info('Publishing: "%s"' % msg)
+        )
 
-  async def send_component_status_request(self):
-    self.request.component = "camera"
-    self.future = self.componentStatusClient.call_async(self.request)
-    result = await self.future
-    self.get_logger().info(f"Service response is:{result.status}")
+    def get_parameter_values(self):
+        self.trashDetectionTopic = self.get_parameter(
+            'trashDetectionTopic').get_parameter_value().string_value
+        self.componentStatusService = self.get_parameter(
+            'componentStatusService').get_parameter_value().string_value
+        self.actuation_command_topic = self.get_parameter(
+            'actuation_command_topic').get_parameter_value().string_value
+
+    def trash_detection_callback(self, msg):
+
+        self.get_logger().info('I heard: "%s"' % msg.data)
+        message = msg.data
+        if "trash" in message:
+            self.get_logger().info("Sending move request to actuator")
+            msg.data = "run"
+        else:
+            self.get_logger().info("Sending no request to actuator")
+            msg.data = "no need for movement"
+        self.actuation_command_publisher.publish(msg)
+        self.get_logger().info('Publishing: "%s"' % msg.data)
+
+    async def send_component_status_request(self):
+        self.request.component = "camera"
+        self.future = self.componentStatusClient.call_async(self.request)
+        result = await self.future
+        self.get_logger().info(f"Service response is:{result.status}")
 
 
 def main(args=None):
-  rclpy.init(args=args)
+    rclpy.init(args=args)
 
-  brainNode = BrainNode()
+    brainNode = BrainNode()
 
-  executor = MultiThreadedExecutor()
-  rclpy.spin(brainNode, executor)
-  brainNode.destroy_node()
-  rclpy.shutdown()
+    executor = MultiThreadedExecutor()
+    rclpy.spin(brainNode, executor)
+    brainNode.destroy_node()
+    rclpy.shutdown()
 
 
 if __name__ == '__main__':
-  main()
+    main()

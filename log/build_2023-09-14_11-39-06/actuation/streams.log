@@ -1,0 +1,24 @@
+[0.899s] Invoking command in '/home/eypan/ros2_ws/src/actuation': PYTHONPATH=/home/eypan/ros2_ws/build/actuation/prefix_override:/home/eypan/ros2_ws/install/actuation/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../build/actuation build --build-base /home/eypan/ros2_ws/build/actuation/build install --record /home/eypan/ros2_ws/build/actuation/install.log --single-version-externally-managed
+[1.062s] running egg_info
+[1.063s] writing ../../build/actuation/actuation.egg-info/PKG-INFO
+[1.063s] writing dependency_links to ../../build/actuation/actuation.egg-info/dependency_links.txt
+[1.063s] writing entry points to ../../build/actuation/actuation.egg-info/entry_points.txt
+[1.063s] writing requirements to ../../build/actuation/actuation.egg-info/requires.txt
+[1.063s] writing top-level names to ../../build/actuation/actuation.egg-info/top_level.txt
+[1.065s] reading manifest file '../../build/actuation/actuation.egg-info/SOURCES.txt'
+[1.065s] writing manifest file '../../build/actuation/actuation.egg-info/SOURCES.txt'
+[1.065s] running build
+[1.065s] running build_py
+[1.066s] copying actuation/actuation_node.py -> /home/eypan/ros2_ws/build/actuation/build/lib/actuation
+[1.066s] running install
+[1.066s] running install_lib
+[1.066s] copying /home/eypan/ros2_ws/build/actuation/build/lib/actuation/actuation_node.py -> /home/eypan/ros2_ws/install/actuation/lib/python3.10/site-packages/actuation
+[1.067s] byte-compiling /home/eypan/ros2_ws/install/actuation/lib/python3.10/site-packages/actuation/actuation_node.py to actuation_node.cpython-310.pyc
+[1.067s] running install_data
+[1.067s] running install_egg_info
+[1.069s] removing '/home/eypan/ros2_ws/install/actuation/lib/python3.10/site-packages/actuation-0.0.0-py3.10.egg-info' (and everything under it)
+[1.069s] Copying ../../build/actuation/actuation.egg-info to /home/eypan/ros2_ws/install/actuation/lib/python3.10/site-packages/actuation-0.0.0-py3.10.egg-info
+[1.069s] running install_scripts
+[1.084s] Installing actuation script to /home/eypan/ros2_ws/install/actuation/lib/actuation
+[1.084s] writing list of installed files to '/home/eypan/ros2_ws/build/actuation/install.log'
+[1.129s] Invoked command in '/home/eypan/ros2_ws/src/actuation' returned '0': PYTHONPATH=/home/eypan/ros2_ws/build/actuation/prefix_override:/home/eypan/ros2_ws/install/actuation/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../build/actuation build --build-base /home/eypan/ros2_ws/build/actuation/build install --record /home/eypan/ros2_ws/build/actuation/install.log --single-version-externally-managed
